@@ -11,22 +11,22 @@ from ml_project.enities.model_params import ModelsParams
 
 
 @pytest.fixture()
-def model_params(input_data_path, path: str):
+def model_predict_params(input_data_path, path: str):
     return ModelsParams(
         input_data_path=input_data_path,
-        output_model_path=os.path.join(path, "models/model_log.pkl"),
-        metric_path="metrics.json",
-        params_path="params.json",
-        save_path="prediction.scv"
+        output_model_path=os.path.join(path, "test_models/test_model_log.pkl"),
+        metric_path=os.path.join(path, "test_models/test_metrics.json"),
+        params_path=os.path.join(path, "test_models/test_params.json"),
+        save_path=os.path.join(path, "test_models/test_prediction.scv")
     )
 
 
 @pytest.fixture()
-def predict_params(model_params, class_params: dict, feature_params: FeatureParams):
+def predict_params(model_predict_params, class_params: dict, feature_params: FeatureParams):
     return PredictPipelineParams(
         feature_params=feature_params,
         class_params=ClassifierParams(**class_params),
-        models_params=model_params
+        models_params=model_predict_params
     )
 
 

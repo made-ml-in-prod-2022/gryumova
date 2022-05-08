@@ -12,13 +12,13 @@ from ml_project.enities.split_params import SplittingParams
 
 
 @pytest.fixture()
-def model_params(input_data_path, path: str):
+def model_train_params(input_data_path, path: str):
     return ModelsParams(
         input_data_path=input_data_path,
-        output_model_path=os.path.join(path, "models/model_log.pkl"),
-        metric_path="metrics.json",
-        params_path="params.json",
-        save_path="prediction.scv"
+        output_model_path=os.path.join(path, "test_models/test_model_log.pkl"),
+        metric_path=os.path.join(path, "test_models/test_metrics.json"),
+        params_path=os.path.join(path, "test_models/test_params.json"),
+        save_path=os.path.join(path, "test_models/test_prediction.scv")
     )
 
 
@@ -30,12 +30,12 @@ def split_params():
 
 
 @pytest.fixture()
-def train_params(split_params, model_params, class_params: dict, feature_params: FeatureParams):
+def train_params(split_params, model_train_params, class_params: dict, feature_params: FeatureParams):
     return TrainingPipelineParams(
         splitting_params=split_params,
         feature_params=feature_params,
         class_params=ClassifierParams(**class_params),
-        model_params=model_params
+        model_params=model_train_params
     )
 
 
