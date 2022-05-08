@@ -1,0 +1,46 @@
+splitting_params: 
+  val_size: 0.1
+  random_state: 3
+model_params:
+  input_data_path: data/raw/heart.csv
+  metric_path: models/metrics_rf.json
+  output_model_path: models/model_rf.pkl
+  params_path: models/params_rf.json
+feature_params:
+  target_col:
+    condition
+  categorical_features:
+    [ ]
+  numerical_features:
+    - fbs
+    - exang
+    - sex
+    - oldpeak
+    - slope
+    - ca
+    - restecg
+    - chol
+    - trestbps
+    - cp
+    - thal
+    - thalach
+    - age
+  features_to_drop:
+    []
+  missing_categorial: 'most_frequent'
+  missing_numeric: 'mean'
+class_params:
+  type:
+    RandomForestClassifier
+  n_estimators:
+    100
+  criterion:
+    entropy
+  max_depth:
+    5
+logging:
+  name: ml_project_hw1
+  path: models/logs/ml_project_train.log
+  format: '%(asctime)s %(levelname)s %(message)s'
+  date_format: '%Y-%m-%d %H:%M:%S'
+  stdout: False

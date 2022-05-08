@@ -1,0 +1,41 @@
+models_params:
+  input_data_path: data/raw/heart.csv
+  metric_path: models/metrics_log.json
+  save_path: models/results_log.csv
+  params_path: models/params_log.json
+  output_model_path: models/model_log.pkl
+class_params:
+  type: LogisticRegression
+  alpha: 0.0001
+  loss: log
+  max_iter: 10000
+  penalty: l2
+feature_params:
+  target_col:
+    condition
+  categorical_features:
+    [ ]
+  numerical_features:
+    - fbs
+    - exang
+    - sex
+    - oldpeak
+    - slope
+    - ca
+    - restecg
+    - chol
+    - trestbps
+    - cp
+    - thal
+    - thalach
+    - age
+  features_to_drop:
+    []
+  missing_categorial: 'most_frequent'
+  missing_numeric: 'mean'
+logging:
+  name: ml_project_pred.log'
+  path: models/logs/ml_project_train.log
+  format: '%(asctime)s %(levelname)s %(message)s'
+  date_format: '%Y-%m-%d %H:%M:%S'
+  stdout: False
