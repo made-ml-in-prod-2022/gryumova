@@ -10,9 +10,6 @@ Project Organization
     ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
@@ -22,32 +19,48 @@ Project Organization
     ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
+    │  
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    ├── ml_project         <- Source code for use in this project.
+    │   ├──     <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
+    |   |   ├── __init__.py
     │   │   └── make_dataset.py
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
+    |   |   ├── __init__.py
     │   │   └── build_features.py
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
+    |   |   ├── __init__.py
+    |   |   ├── model.py
     │   │   ├── predict_model.py
     │   │   └── train_model.py
+    |   └── utils.py
+    |
+    ├── tests
+    |   ├── __init__.py
+    |   ├── data           <- Test scripts to download or generate data
+    |   |   ├── __init__.py
+    │   │   └── test_make_dataset.py
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
+    │   ├── features       <- Test scripts to turn raw data into features for modeling
+    |   |   ├── __init__.py
+    │   │   └── test_build_features.py
+    │   │
+    │   ├── models         <- Test scripts to train models and then use trained models to make
+    │   │   │                 predictions
+    |   |   ├── __init__.py
+    |   |   ├── test_build_model.py
+    │   │   ├── test_predict.py
+    │   │   └── test_train.py
+    |   |
+    |   ├── conftest.py
+    |   └── logger.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
