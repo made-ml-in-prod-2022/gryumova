@@ -1,21 +1,21 @@
-###  Online_inference - homework 2
+#  Online_inference - homework 2
 
 Сборка docker-образа:
-'''py
+```py
 docker build -t gryumova/online_inference .
-'''
+```
 
 Запуск образа:
-'''py
+```py
 docker run gryumova/online_inference
-'''
+```
 
 Публикация образа на docker-hub:
-'''py
+```py
 docker push gryumova/online_inference
-'''
+```
 
 Pull с docker-hub:
-'''py
+```py
 docker pull gryumova/online_inference
-'''
+```
