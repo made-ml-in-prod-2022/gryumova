@@ -19,3 +19,7 @@ Pull с docker-hub:
 ```py
 docker pull gryumova/online_inference
 ```
+
+### Минизация размера docker image
+Образ весил 226.94 MB. В Dockerfile использовала версию python:3.9-slim - образ стал весить 261.93 MB
+Понизила версию пакета sklearn==0.23.1 - 226.94 MB
